@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Header from './ServerHeader.vue'
+
+Vue.component('app-server-header', Header);
 
 new Vue({
   el: '#app',
