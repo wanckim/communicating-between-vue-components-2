@@ -9,11 +9,13 @@
             >
         </app-server-main>
         <hr>
-        <app-server-footer></app-server-footer>
+        <app-server-footer :selectedServer = 'server'>
+        </app-server-footer>
     </div>
 </template>
 
 <script>
+  import { eventBus } from './main'
   import Main from './Server/ServerMain.vue';
   import Footer from './Shared/ServerFooter.vue';
 
@@ -28,6 +30,11 @@
           { id: 4, status: 'Normal'},
         ],
       }
+    },
+    created() {
+        eventBus.$on('statusWasMaintained', (newStatus) => {
+            this.server = newStatus;
+        });
     },
     components: {
       'app-server-main': Main,
