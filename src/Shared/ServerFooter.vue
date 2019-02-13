@@ -3,8 +3,13 @@
       <div class="col-xs-12">
           <footer>
               <p>All Servers are managed here</p>
-              <button @click="maintainStatus">Maintain status
-              </button>
+              <div v-if="selectedServer.status !== 'Normal'">
+                <div v-if="selectedServer.id !== 0">
+                  <p>The server is in '{{ selectedServer.status }}' condition.</p>
+                  <p>Maintain the server immediately!</p>
+                  <button @click="maintainStatus">Maintain server</button>
+                </div>
+              </div>
           </footer>
       </div>
   </div>
