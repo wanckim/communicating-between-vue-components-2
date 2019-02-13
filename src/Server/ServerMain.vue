@@ -4,7 +4,8 @@
           <ul class="list-group">
               <li
                   class="list-group-item"
-                  v-for="server in servers">
+                  v-for="server in servers"
+                  @click="viewStatus(server)">
                       Server #{{ server.id }}
               </li>
           </ul>
@@ -18,6 +19,11 @@
 
   export default {
     props: ['servers','selectedServer'],
+    methods: {
+      viewStatus(server) {
+        this.$emit('serverIsSelected', server);
+      }
+    },
     components: {
       'app-server-desc': Desc
     }

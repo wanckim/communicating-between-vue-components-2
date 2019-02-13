@@ -4,7 +4,9 @@
       <hr>
         <app-server-main
             :servers = 'servers'
-            :selectedServer="server">
+            :selectedServer="server"
+            @serverIsSelected="server = $event"
+            >
         </app-server-main>
         <hr>
         <app-server-footer></app-server-footer>
