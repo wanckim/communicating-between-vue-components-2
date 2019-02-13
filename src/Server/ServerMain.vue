@@ -3,13 +3,13 @@
       <div class="col-xs-12 col-sm-6">
           <ul class="list-group">
               <li
-                      class="list-group-item"
-                      v-for="index in 5">
-                  Server #{{ index }}
+                  class="list-group-item"
+                  v-for="server in servers">
+                      Server #{{ server.id }}
               </li>
           </ul>
       </div>
-      <app-server-desc></app-server-desc>
+      <app-server-desc :selectedServer="selectedServer"></app-server-desc>
   </div>
 </template>
 
@@ -17,6 +17,7 @@
   import Desc from './ServerDesc.vue';
 
   export default {
+    props: ['servers','selectedServer'],
     components: {
       'app-server-desc': Desc
     }
